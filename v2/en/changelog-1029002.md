@@ -4,7 +4,7 @@
     @created       2026-02-28 14:33 GMT
 --->
 
-# Version 1.29.2.4 - 19 May 2025
+# Version 1.29.2.4 - 19 May 2026
 
 * backported patches from [nginx](https://nginx.org/en/security_advisories.html)
     * [CVE-2026-42945](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-42945): Buffer overflow in the ngx_http_rewrite_module
@@ -13,7 +13,7 @@
     * [CVE-2026-40460](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-40460): HTTP/3 address spoofing
     * [CVE-2026-40701](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-40701): resolver use-after-free in OCSP
 
-# Version 1.29.2.3 - 25 Mar 2025
+# Version 1.29.2.3 - 25 Mar 2026
 
 * backported patches from [nginx](https://nginx.org/en/security_advisories.html)
     * CVE-2026-27654: Buffer overflow in ngx_http_dav_module
