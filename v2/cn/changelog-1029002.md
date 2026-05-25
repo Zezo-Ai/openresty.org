@@ -4,6 +4,11 @@
     @created       2026-02-28 14:33 GMT
 --->
 
+# 版本 1.29.2.5 - 2026年5月25日
+
+* 移植 [nginx](https://nginx.org/en/security_advisories.html) 的漏洞补丁
+    * [CVE-2026-9256](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-9256): Buffer overflow in the ngx_http_rewrite_module
+
 # 版本 1.29.2.4 - 2026年5月19日
 
 * 移植 [nginx](https://nginx.org/en/security_advisories.html) 的漏洞补丁
