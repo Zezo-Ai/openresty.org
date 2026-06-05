@@ -12,7 +12,7 @@ templates_lua = lua/openresty_org/templates.lua
 
 lua_files := $(sort $(filter-out $(i18n_lua) $(templates_lua),$(wildcard lua/*.lua lua/openresty_org/*.lua)))
 auto_tt2_files := templates/posts-slide-cn.tt2 templates/posts-slide-en.tt2
-tt2_files := $(sort $(wildcard templates/*.tt2)) $(auto_tt2_files)
+tt2_files := $(sort $(wildcard templates/*.tt2) $(auto_tt2_files))
 
 less_file = css/main.less
 css_file = $(patsubst %.less, %.css, $(less_file))

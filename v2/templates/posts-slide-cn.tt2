@@ -11,6 +11,11 @@
   <div class="swiper-parent" id="swiper-parent">
     <div class="swiper-container" id="article-carousel">
       <div class="swiper-wrapper">
+        <div class="swiper-slide"><a class="article-item" href="https://blog.openresty.com.cn/cn/edge-inner-traffic/?src=org" data-modal="data-modal">
+            <div class="blog-img" data-pic="/header-images/edge-inner-traffic.jpg"><img class="article-img" src="../images/header-images/edge-inner-traffic.jpg" loading="lazy"/></div>
+            <div class="article-text">
+              <p class="blog-title">内部流量治理的演进：OpenResty Edge 在微服务架构中的工程实践</p>
+            </div></a></div>
         <div class="swiper-slide"><a class="article-item" href="https://blog.openresty.com.cn/cn/xray-ann-26.5.11/?src=org" data-modal="data-modal">
             <div class="blog-img" data-pic="/header-images/xray-logo.jpg"><img class="article-img" src="../images/header-images/xray-logo.jpg" loading="lazy"/></div>
             <div class="article-text">
@@ -105,11 +110,6 @@
             <div class="blog-img" data-pic="/header-images/edge-cdn-benefit.jpg"><img class="article-img" src="../images/header-images/edge-cdn-benefit.jpg" loading="lazy"/></div>
             <div class="article-text">
               <p class="blog-title">为什么越来越多企业需要建立私有 CDN</p>
-            </div></a></div>
-        <div class="swiper-slide"><a class="article-item" href="https://blog.openresty.com.cn/cn/xray-java-mem/?src=org" data-modal="data-modal">
-            <div class="blog-img" data-pic="/header-images/xray-java-mem.jpg"><img class="article-img" src="../images/header-images/xray-java-mem.jpg" loading="lazy"/></div>
-            <div class="article-text">
-              <p class="blog-title">从堆内存异常到精准定位：OpenResty XRay 在 Java 内存问题诊断中的实践</p>
             </div></a></div>
       </div>
       <div class="swiper-pagination"></div>
