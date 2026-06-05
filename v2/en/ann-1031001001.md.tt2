@@ -164,8 +164,8 @@ versions should review the following:
   sidecars, load-testing tools, hand-rolled HTTP clients, etc.); requests
   that used to succeed may now be rejected with a 400.
 
-Complete change logs since the last (formal) release, [1.29.2.1](ann-1029002001.html),
-can be browsed in the page [Change Log for [% major_ver %].x](changelog-1029003.html).
+Complete change logs since the last (formal) release, [1.29.2.5](ann-1029002005.html),
+can be browsed in the page [Change Log for [% major_ver %].x](changelog-1031001.html).
 
 # Testing
 

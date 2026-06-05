@@ -92,7 +92,7 @@ Debian, Fedora, CentOS, RHEL, OpenSUSE, Amazon Linux are provided on this
     * x86/x64: Backport fix for math.min()/math.max() argument check. _Thanks Mike Pall for the patch._
 
 Complete change logs since the last (formal) release, [1.29.2.1](ann-1029002001.html),
-can be browsed in the page [Change Log for [% major_ver %].x](changelog-1029003.html).
+can be browsed in the page [Change Log for [% major_ver %].x](changelog-1029002.html).
 
 # Testing
 
