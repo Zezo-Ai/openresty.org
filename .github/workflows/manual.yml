@@ -21,9 +21,9 @@ jobs:
     - name: Checkout repo  # seems that checkout is needed
       uses: actions/checkout@v2
     - name: Set up Node.js # set up nodejs and npm command
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v4
       with:
-        node-version: '18.x' # require only 18 is enough
+        node-version: '22.x' # sharp 0.35 requires Node.js >= 20.9
     - name: Set up Perl
       uses: shogo82148/actions-setup-perl@v1
       with:
