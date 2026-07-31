@@ -5,7 +5,6 @@ local model = require "openresty_org.model"
 local cjson = require "cjson"
 local i18n_class = require "openresty_org.i18n"
 
-local concat = table.concat
 local re_find = ngx.re.find
 local re_match = ngx.re.match
 local sub = string.sub
@@ -208,7 +207,7 @@ function _M.run()
                                     skip_meta = true,
                                     title = _("Search Result"),
                                     search_query = query,
-                                    body = concat(result_html),
+                                    body = result_html,
                                     timeline = timeline,
                                     lang = assert(lang),
                                   },
