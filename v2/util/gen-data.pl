@@ -22,6 +22,9 @@ while (my $entity = readdir $dir) {
     my $fname = "$dirname/$entity";
     if (-f $fname && $entity =~ /(.+)\.html$/) {
         my $name = $1;
+        # This metadata-only legacy placeholder was removed from the site in
+        # 2016, but `make extract` and stale build output can recreate it.
+        next if $name eq 'release-note';
         #next if $name eq 'main-menu';
         #warn $name;
         my $rec = parse_file($name, $fname);
