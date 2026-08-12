@@ -359,16 +359,6 @@ end
 
 MD5['header.tt2'] = "f934ce57918edaf6d7662c3993c3f764"
 
-Template['heat-map.tt2'] = function (stash)
-    local out = {}
-    local i = 0
-    i=i+1 out[i] = "<script type=\"text/javascript\">\n  document.addEventListener('DOMContentLoaded', () => {\n    let script = document.createElement('script');\n    script.type = 'text/javascript';\n    script.async = true;\n    if (script.readyState) { //IE\n      script.onreadystatechange = function() {\n        if (script.readyState == 'loaded' ||\n          script.readyState == 'complete') {\n          script.onreadystatechange = null;\n          startClickHeat();\n        }\n      };\n    } else { //Others: Firefox, Safari, Chrome, and Opera\n      script.onload = () => {\n        startClickHeat();\n      };\n    }\n    script.src = 'https://heatmap.openresty.com/clickheat/js/clickheat.js';\n    document.body.appendChild(script);\n  });\n\n  function startClickHeat() {\n    clickHeatSite = 'openresty.org';\n    clickHeatGroup = window.location.pathname;\n    clickHeatServer = 'https://heatmap.openresty.com/clickheat/click.php';\n    initClickHeat();\n  }\n</script>\n"
-
-    return out
-end
-
-MD5['heat-map.tt2'] = "6eee55d4413a2fcea9bf2af7d92f14a6"
-
 Template['index.tt2'] = function (stash)
     local out = {}
     local i = 0
@@ -427,14 +417,12 @@ Template['index.tt2'] = function (stash)
     i=i+1 out[i] = process(stash, "sidebar.tt2")
     i=i+1 out[i] = "\n\n	</div><!-- / wrapper -->\n\n"
     i=i+1 out[i] = process(stash, "footer.tt2")
-    i=i+1 out[i] = "\n\n"
-    i=i+1 out[i] = process(stash, "heat-map.tt2")
     i=i+1 out[i] = "\n\n</body>\n</html>\n"
 
     return out
 end
 
-MD5['index.tt2'] = "c13b9121051c9dafe68b8807b252a78d"
+MD5['index.tt2'] = "a260c9506f543355fc4d4656fdb6b7e0"
 
 Template['main-menu-buttons.tt2'] = function (stash)
     local out = {}
