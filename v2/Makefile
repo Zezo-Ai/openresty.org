@@ -100,7 +100,7 @@ extract:
 	$(extract_pl) ../v1/cn/index.html cn
 
 .PHONY: gendata
-gendata: $(tsv_files)
+gendata: $(tsv_files) sitemap
 
 $(tsv_files): $(html_files) $(txt_files) $(gendata_pl)
 	$(gendata_pl) en
@@ -117,7 +117,7 @@ initdb: $(tsv_files) sitemap.xml
 	psql -Uopenresty openresty_org -v "ON_ERROR_STOP=1" -f init.sql
 
 .PHONY: deploy
-deploy: sitemap.xml
+deploy:
 	ls $(tsv_files)
 	psql -Uopenresty openresty_org -v "ON_ERROR_STOP=1" -f init.sql
 

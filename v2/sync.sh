@@ -8,7 +8,6 @@ DEST="ec2-user@openresty.org:/home/ec2-user/openresty.org/v2"
 SRCS=(
   posts-en.tsv
   posts-cn.tsv
-  sitemap.xml
   init.sql
   html
   css/main.css
@@ -45,6 +44,7 @@ fi
 ssh ec2-user@openresty.org '
   set -eu
   cd /home/ec2-user/openresty.org/v2
+  git pull
   psql -Uopenresty openresty_org -v "ON_ERROR_STOP=1" -f init.sql
   sudo kill -s SIGHUP "$(cat /home/ec2-user/backup/etc/openresty/logs/nginx.pid)"
 '
