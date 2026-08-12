@@ -73,12 +73,8 @@ async function genSlideTemplate(lang) {
   });
 
   const compileFunction = pug.compileFile('./util/posts-slide.pug', {pretty: true});
-  const swiperCss = lang === 'en'
-    ? `${staticBaseUrl}/swiper/5.2.1/css/swiper.min.css`
-    : `${staticBaseUrl}.cn/swiper/5.2.1/css/swiper.min.css`;
-  const swiperJs = lang === 'en'
-    ? `${staticBaseUrl}/swiper/5.2.1/js/swiper.min.js`
-    : `${staticBaseUrl}.cn/swiper/5.2.1/js/swiper.min.js`;
+  const swiperCss = '/css/swiper-bundle.min.css';
+  const swiperJs = '/js/swiper-bundle.min.js';
   await writeFile(`./templates/posts-slide-${lang}.tt2`, compileFunction({postInfos, swiperCss, swiperJs}));
 
   const newsCompileFunction = pug.compileFile('./util/news.pug', {pretty: true});

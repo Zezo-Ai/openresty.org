@@ -69,11 +69,11 @@ msgstr "官方论坛"
 msgid  "Try OpenResty XRay"
 msgstr "试用 OpenResty XRay"
 
-#: templates/index.tt2:28
+#: templates/index.tt2:27
 msgid  "OpenResty<sup>&reg;</sup> is a dynamic web platform based on NGINX and LuaJIT."
 msgstr "OpenResty<sup>&reg;</sup> 是一款基于 NGINX 和 LuaJIT 的 Web 平台。"
 
-#: templates/index.tt2:35
+#: templates/index.tt2:34
 msgid  "Search OpenResty.org"
 msgstr "搜索 OpenResty.org 中文站"
 
