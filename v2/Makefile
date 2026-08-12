@@ -76,7 +76,7 @@ clean:
 .PHONY: html
 html: $(html_files)
 
-html/%.html: %.md
+html/%.html: %.md $(md2html)
 	@mkdir -p html/en html/cn
 	$(md2html) $< > $@
 
