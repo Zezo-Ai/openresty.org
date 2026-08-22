@@ -1,13 +1,12 @@
 #!/usr/bin/env perl
 
-# generate sitemap.xml from the posts-*.tsv data files so that the
-# <lastmod> values always reflect the posts' modification times.
+# Generate one sitemap per language from the posts-*.tsv data files so that
+# the <lastmod> values always reflect the posts' modification times.
 
 use strict;
 use warnings;
 
 my $base_url = "https://openresty.org";
-my $outfile = "sitemap.xml";
 
 my %months = (
     Jan => '01', Feb => '02', Mar => '03', Apr => '04',
@@ -15,9 +14,14 @@ my %months = (
     Sep => '09', Oct => '10', Nov => '11', Dec => '12',
 );
 
-my @entries;
-for my $lang (qw/ en cn /) {
+my @langs = @ARGV ? @ARGV : qw/ en cn /;
+
+for my $lang (@langs) {
+    die "unknown language \"$lang\" (expected \"en\" or \"cn\").\n"
+        if $lang ne 'en' && $lang ne 'cn';
+
     my $tsvfile = "posts-$lang.tsv";
+    my $outfile = "sitemap-$lang.xml";
     if (!-f $tsvfile) {
         die "$tsvfile not found (maybe you should run \"make gendata\" first?).\n";
     }
@@ -50,34 +54,35 @@ for my $lang (qw/ en cn /) {
 
     close $in;
 
+    my @entries;
     push @entries, ["$base_url/$lang/", $index_lastmod];
     push @entries, ["$base_url/$lang/videos.html", undef];
     for my $permlink (sort keys %lastmod) {
         push @entries, ["$base_url/$lang/$permlink.html", $lastmod{$permlink}];
     }
-}
 
-open my $out, ">:encoding(UTF-8)", $outfile
-    or die "cannot open $outfile for writing: $!\n";
+    open my $out, ">:encoding(UTF-8)", $outfile
+        or die "cannot open $outfile for writing: $!\n";
 
-print $out qq{<?xml version="1.0" encoding="UTF-8"?>\n};
-print $out qq{<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n};
+    print $out qq{<?xml version="1.0" encoding="UTF-8"?>\n};
+    print $out qq{<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n};
 
-for my $entry (@entries) {
-    my ($loc, $lastmod) = @$entry;
-    print $out "  <url>\n";
-    print $out "    <loc>$loc</loc>\n";
-    if (defined $lastmod) {
-        print $out "    <lastmod>$lastmod</lastmod>\n";
+    for my $entry (@entries) {
+        my ($loc, $lastmod) = @$entry;
+        print $out "  <url>\n";
+        print $out "    <loc>$loc</loc>\n";
+        if (defined $lastmod) {
+            print $out "    <lastmod>$lastmod</lastmod>\n";
+        }
+        print $out "  </url>\n";
     }
-    print $out "  </url>\n";
+
+    print $out "</urlset>\n";
+
+    close $out;
+
+    print scalar(@entries), " URLs dumped to $outfile.\n";
 }
-
-print $out "</urlset>\n";
-
-close $out;
-
-print scalar(@entries), " URLs dumped to $outfile.\n";
 
 sub parse_date {
     my $s = shift;

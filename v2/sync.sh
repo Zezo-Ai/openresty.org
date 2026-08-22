@@ -8,6 +8,8 @@ DEST="ec2-user@openresty.org:/home/ec2-user/openresty.org/v2"
 SRCS=(
   posts-en.tsv
   posts-cn.tsv
+  sitemap-en.xml
+  sitemap-cn.xml
   init.sql
   html
   css

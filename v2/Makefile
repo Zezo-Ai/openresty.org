@@ -27,6 +27,7 @@ msgfmt_pl = ./util/msgfmt.pl
 
 po_files = po/cn.po
 tsv_files = posts-en.tsv posts-cn.tsv
+sitemap_files = sitemap-en.xml sitemap-cn.xml
 tpage = tpage
 
 .PRECIOUS: $(md_files)
@@ -107,13 +108,16 @@ $(tsv_files): $(html_files) $(txt_files) $(gendata_pl)
 	$(gendata_pl) cn
 
 .PHONY: sitemap
-sitemap: sitemap.xml
+sitemap: $(sitemap_files)
 
-sitemap.xml: $(tsv_files) $(gensitemap_pl)
-	$(gensitemap_pl)
+sitemap-en.xml: posts-en.tsv $(gensitemap_pl)
+	$(gensitemap_pl) en
+
+sitemap-cn.xml: posts-cn.tsv $(gensitemap_pl)
+	$(gensitemap_pl) cn
 
 .PHONY: initdb
-initdb: $(tsv_files) sitemap.xml
+initdb: $(tsv_files) $(sitemap_files)
 	psql -Uopenresty openresty_org -v "ON_ERROR_STOP=1" -f init.sql
 
 .PHONY: deploy
